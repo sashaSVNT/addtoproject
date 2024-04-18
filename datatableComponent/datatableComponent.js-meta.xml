@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property type="String" name="firstField" />
+            <property type="String" name="secondField" />
+            <property type="String" name="thirdField" />
+            <property type="String" name="fourthField" />
+            <property type="String" name="fifthField" />
+            <property type="String" name="objectName" />
+            <property type="String" name="firstFilter" />
+            <property type="String" name="secondFilter" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

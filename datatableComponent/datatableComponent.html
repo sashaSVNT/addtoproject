@@ -1,0 +1,71 @@
+<template>
+    <lightning-card>
+        <div class="slds-p-horizontal_medium">
+            <template lwc:if={firstFilterOptions}>
+                <lightning-combobox
+                    name="firstPicklist"
+                    label={firstFilter}
+                    value={firstFilterValue}
+                    placeholder="Select Value"
+                    options={firstFilterOptions}
+                    onchange={handleFirstFilter}>
+                </lightning-combobox>
+            </template>
+            <lightning-combobox
+                class="slds-m-bottom_medium"
+                name="secondPicklist"
+                label={secondFilter}
+                value={secondFilterValue}
+                placeholder="Select Value"
+                options={secondFilterOptions}
+                onchange={handleSecondFilter}>
+            </lightning-combobox>
+            <div class="slds-m-bottom_small">
+                <lightning-button 
+                    icon-name="utility:arrow_bottom" 
+                    label="Download" 
+                    onclick={download} 
+                    variant="brand-outline">
+                </lightning-button>
+            </div>
+            <template lwc:if={data}>
+                <lightning-datatable
+                    data={displayedData}
+                    columns={columns}
+                    key-field="Id"
+                    sorted-by={sortBy}
+                    onsort={doSorting}
+                    sorted-direction={sortDirection}
+                    hide-checkbox-column
+                ></lightning-datatable>
+            </template>   
+        </div>
+        <div class="slds-p-around_medium">
+                <lightning-layout>
+                    <lightning-layout-item>
+                        <lightning-button
+                            class="previous" 
+                            icon-name="utility:arrow_left" 
+                            label="Previous" 
+                            onclick={handlePrevious} 
+                            variant="Brand">
+                        </lightning-button>
+                    </lightning-layout-item> 
+                    <lightning-layout-item flexibility="grow">
+                        <div class="slds-text-heading_medium slds-text-align_center">
+                            Page: {countPages} of {lastPage} ({countRecords} - {countLastRecord})
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item>
+                        <lightning-button 
+                            class="next" 
+                            icon-name="utility:arrow_right" 
+                            label="Next" 
+                            onclick={handleNext} 
+                            variant="Brand">
+                        </lightning-button>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+    </lightning-card>
+</template>
